@@ -65,4 +65,8 @@ public class Grille extends Observable implements Runnable {
 		if (x >= HEIGHT_TAB_SIZE || y >= WIDTH_TAB_SIZE) return false;
 		return !getValue(x, y);
 	}
+	
+	public void ajouterEntiteAGrille(Entite entite, int x, int y) {
+		this.coordonnees.put(entite, new Coordonnees(x,y));
+	}
 }

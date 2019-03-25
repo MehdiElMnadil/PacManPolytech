@@ -1,13 +1,10 @@
 import java.util.Random;
 
 public abstract class Entite implements Runnable {
-	private int x;
-	private int y;
 	private Grille grille;
 
 	public Entite(Grille grille) {
-		x = 0;
-		y = 0;
+
 		this.grille = grille;
 	}
 
@@ -29,16 +26,5 @@ public abstract class Entite implements Runnable {
 		}
 
 	}
-
-	public int getX() {
-		return x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-
-	
 
 }

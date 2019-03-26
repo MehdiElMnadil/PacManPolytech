@@ -3,11 +3,17 @@ import java.util.Random;
 public abstract class Entite implements Runnable {
 	private Grille grille;
 
+	protected String cheminImage;
+	
 	public Entite(Grille grille) {
 
 		this.grille = grille;
 	}
 
+	public String getCheminImage() {
+		return cheminImage;
+	}
+	
 	@Override
 	public void run() {
 		while (true) {

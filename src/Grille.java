@@ -1,3 +1,4 @@
+
 import java.awt.Point;
 import java.util.HashMap;
 import java.util.Observable;
@@ -8,6 +9,22 @@ public class Grille extends Observable implements Runnable {
 	public final static int WIDTH_TAB_SIZE = 10;
 	private boolean[][] tab = new boolean[HEIGHT_TAB_SIZE][WIDTH_TAB_SIZE]; 
 	private HashMap<Entite, Coordonnees> coordonnees = new HashMap<Entite, Coordonnees>();
+
+	public static int getHeightTabSize() {
+		return HEIGHT_TAB_SIZE;
+	}
+
+	public static int getWidthTabSize() {
+		return WIDTH_TAB_SIZE;
+	}
+
+	public boolean[][] getTab() {
+		return tab;
+	}
+
+	public HashMap<Entite, Coordonnees> getCoordonnees() {
+		return coordonnees;
+	}
 
 	public Grille() {
 		for (int i = 0; i < HEIGHT_TAB_SIZE; i++) {

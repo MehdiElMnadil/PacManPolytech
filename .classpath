@@ -6,5 +6,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_181/jre/lib/ext/jfxrt.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

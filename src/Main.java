@@ -1,3 +1,4 @@
+import javafx.application.Application;
 
 public class Main {
 
@@ -5,7 +6,8 @@ public class Main {
 		Grille g = new Grille();
 		Console c = new Console(g);
 		g.addObserver(c);
-		(new Thread(g)).start();
+		//(new Thread(g)).start();
+		Application.launch(args);
 		
 	}
 

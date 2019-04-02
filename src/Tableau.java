@@ -1,4 +1,5 @@
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
@@ -31,8 +32,9 @@ public class Tableau extends Application implements Observer  {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		this.grille = new Grille();
+		Fantome lefantome = new Fantome(grille);
+		grille.ajouterEntiteAGrille(lefantome, 3, 3);
 		//Console c = new Console(g);
-		
 		// gestion du placement (permet de palcer le champ Text affichage en haut, et GridPane gPane au centre)
         BorderPane border = new BorderPane();
         
@@ -51,7 +53,14 @@ public class Tableau extends Application implements Observer  {
             public void update(Observable o, Object arg) {
             	//affichage.setText("Err");
             	for (Map.Entry me : grille.getCoordonnees().entrySet()) {
-            		
+            		;
+            		try {
+            			FileInputStream fantomeImage = new FileInputStream(((Entite) me.getKey()).getCheminImage());
+						gPane.add(new ImageView(new Image(fantomeImage)), ((Coordonnees) me.getValue()).getX(), ((Coordonnees) me.getValue()).getY());
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
                     System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
                   }
             }
@@ -70,15 +79,18 @@ public class Tableau extends Application implements Observer  {
                 
         	}
             //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
-         	
         	 
         }
+        
         
         gPane.setGridLinesVisible(true);
         
         border.setCenter(gPane);
         
         Scene scene = new Scene(border, Color.WHITE);
+        
+        (new Thread(grille)).start();
+        (new Thread(lefantome)).start();
         
         primaryStage.setTitle("Pacman");
         primaryStage.setScene(scene);

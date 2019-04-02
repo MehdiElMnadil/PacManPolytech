@@ -39,7 +39,7 @@ public class Grille extends Observable implements Runnable {
 			setChanged();
 			notifyObservers();
 			try {
-				Thread.currentThread().sleep(1000);
+				Thread.currentThread().sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
